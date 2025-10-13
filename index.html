@@ -1,52 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>CL-ARC Architecture</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CL-ARC Architecture: Innovative design solutions for modern spaces.">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background-color: #f0f0f0; /* Light grey background */
-      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0; /* light grey */
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      animation: fadeIn 1s ease-in-out;
+      justify-content: center;
+      height: 100vh;
+      font-family: sans-serif;
     }
-    a.logo-link {
-      display: block;
-    }
-    img.logo {
-      max-width: 600px; /* Larger logo */
+    img {
+      max-width: 300px;
       height: auto;
-      transition: transform 0.3s ease;
+      margin-bottom: 20px;
     }
-    img.logo:hover {
-      transform: scale(1.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @media (max-width: 768px) {
-      img.logo {
-        max-width: 400px; /* Smaller logo on tablets */
-      }
-    }
-    @media (max-width: 480px) {
-      img.logo {
-        max-width: 250px; /* Smaller logo on mobile */
-      }
+    p {
+      font-size: 18px;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <a href="contact.html" class="logo-link" aria-label="Go to CL-ARC Architecture contact page">
-    <img src="Large Logo.png" alt="CL-ARC Architecture Logo" class="logo" loading="lazy">
-  </a>
+  <img src="Large Logo.png" alt="CL-ARC Logo">
+  <p>Contact: <a href="mailto:chuck@cl-arc.com">chuck@cl-arc.com</a></p>
 </body>
 </html>
