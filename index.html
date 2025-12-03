@@ -10,20 +10,44 @@
       height: 100%;
       background-color: #f0f0f0; /* light grey */
       display: flex;
+      flex-direction: column;   /* changed so logo + text stack vertically */
       align-items: center;
       justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
     }
     img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 90%;
+      max-height: 50vh;         /* limits how huge the logo can get */
       object-fit: contain;
       cursor: pointer;
+      margin-bottom: 40px;      /* space between logo and text */
+    }
+    .construction {
+      text-align: center;
+      color: #333;
+    }
+    .construction h1 {
+      font-size: 3em;
+      margin: 0 0 20px 0;
+    }
+    .construction p {
+      font-size: 1.4em;
+      margin: 0;
     }
   </style>
 </head>
 <body>
+
+  <!-- Clickable logo – change "new-logo.png" to your actual new logo filename -->
   <a href="contact.html">
-    <img src="Large Logo 2.png" alt="CL-ARC Logo">
+    <img src="Large Logo.png" alt="CL-ARC Architecture Logo">
   </a>
+
+  <!-- Under Construction message -->
+  <div class="construction">
+    <h1>🚧 Website Under Construction 🚧</h1>
+    <p>We're busy designing something amazing.<br>Please check back soon!</p>
+  </div>
+
 </body>
 </html>
