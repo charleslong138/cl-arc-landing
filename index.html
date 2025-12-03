@@ -1,52 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CL-ARC Architecture</title>
   <meta charset="UTF-8">
+  <title>Contact | CL-ARC Architecture</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      background-color: #f0f0f0; /* light grey */
+      height: 100vh;
+      background-image: url('Under Construction Image.png');
+      background-size: cover;           /* makes the image fill the whole screen */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;      /* keeps image still when scrolling */
       display: flex;
-      flex-direction: column;   /* changed so logo + text stack vertically */
       align-items: center;
       justify-content: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    img {
-      max-width: 90%;
-      max-height: 50vh;         /* limits how huge the logo can get */
-      object-fit: contain;
-      cursor: pointer;
-      margin-bottom: 40px;      /* space between logo and text */
-    }
-    .construction {
+      font-family: 'Arial', Helvetica, sans-serif;
+      color: white;                      /* all text is white for contrast */
       text-align: center;
-      color: #333;
     }
-    .construction h1 {
-      font-size: 3em;
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.5);   /* dark semi-transparent overlay so text is readable */
+      padding: 60px 40px;
+      border-radius: 20px;
+      max-width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-size: 4em;
       margin: 0 0 20px 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     }
-    .construction p {
+
+    p {
+      font-size: 1.6em;
+      margin: 15px 0;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+    }
+
+    .contact-info {
+      margin-top: 40px;
       font-size: 1.4em;
-      margin: 0;
+    }
+
+    a {
+      color: #a0d8ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- Clickable logo – change "new-logo.png" to your actual new logo filename -->
-  <a href="contact.html">
-    <img src="Large Logo 2.png" alt="CL-ARC Architecture Logo">
-  </a>
+  <div class="container">
+    <h1> Under Construction </h1>
+    <p>We’re working hard to finish the website.</p>
+    <p>Please check back soon!</p>
 
-  <!-- Under Construction message -->
-  <div class="construction">
-    <h1>🚧 Website Under Construction 🚧</h1>
-    <p>We're busy designing something amazing.<br>Please check back soon!</p>
+    <div class="contact-info">
+      <p>In the meantime, feel free to reach out:</p>
+      <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+      <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+    </div>
+
+    <p style="margin-top: 50px; font-size: 1em;">
+      © 2025 CL-ARC Architecture
+    </p>
   </div>
 
 </body>
