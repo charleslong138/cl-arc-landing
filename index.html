@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y79Y6WBLP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3Y79Y6WBLP');
-</script>
-  <title>CLA</title>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charles Architecture</title>
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background-color: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      box-sizing: border-box;
     }
-    img {
-      max-width: 90%;
-      max-height: 90vh;
-      object-fit: contain;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    body, html {
+      height: 100%;                /* Makes everything full height */
+      overflow: hidden;            /* No scrollbars — image fills screen */
+      font-family: 'Helvetica Neue', Arial, sans-serif;
     }
-    img:hover {
-      transform: scale(1.05);
+
+    /* Full-bleed background image – covers entire screen, no borders */
+    .background {
+      position: fixed;             /* Stays in place */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/Sky.png');  /* ← Change to your PNG file name */
+      background-size: cover;      /* Fills screen, crops if needed */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat;
+      z-index: -1;                 /* Behind everything else */
+    }
+
+    /* Top navigation – white text, evenly spaced */
+    nav {
+      position: fixed;
+      top: 30px;                   /* Space from top edge – adjust if needed */
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;                 /* On top of image */
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin: 0 30px;              /* Even spacing between links – adjust for your taste */
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+    nav a:hover {
+      opacity: 0.7;                /* Subtle hover effect */
+    }
+
+    /* Bottom-right logo link */
+    .logo-bottom {
+      position: fixed;
+      bottom: 30px;                /* Space from bottom */
+      right: 30px;                 /* Space from right */
+      z-index: 10;
+    }
+    .logo-bottom img {
+      max-width: 480px;            /* Adjust logo size – make bigger/smaller here */
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .logo-bottom img:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
 
-  <!-- Click anywhere on the logo to go to the contact / under-construction page -->
-  <a href="contact.html">
-    <img src="Large Logo 2.png" alt="CL-ARC Architecture">
+  <!-- Full-bleed background image -->
+  <div class="background"></div>
+
+  <!-- Top navigation links -->
+  <nav>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/work.html">Work</a>
+  </nav>
+
+  <!-- Bottom-right logo (clicks to work page) -->
+  <a href="/work.html" class="logo-bottom">
+    <img src="images/logo.png" alt="Charles Architecture Logo">
   </a>
 
 </body>
