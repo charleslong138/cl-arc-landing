@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charles – Work</title>
+  <meta name="description" content="Work samples from Charles Architecture – concept sketches and completed projects in luxury residential, commercial, and institutional design.">
+  <style>
+    /* Reset basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #fff;         /* Pure white background */
+      color: #333;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 1600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin: 40px 0 30px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #222;
+    }
+
+    /* Tight masonry using multi-column – images fit crisply together */
+    .gallery {
+      column-count: 3;                /* 3 columns on full desktop */
+      column-gap: 6px;                /* Horizontal spacing – tight */
+    }
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 6px;             /* Vertical spacing matches horizontal */
+      border-radius: 3px;             /* Subtle rounding */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Very light shadow */
+      transition: transform 0.25s ease;
+      break-inside: avoid;            /* No splitting across columns */
+    }
+    .gallery img:hover {
+      transform: scale(1.025);        /* Gentle zoom on hover */
+    }
+
+    /* Responsive: fewer columns on smaller screens */
+    @media (max-width: 1200px) { .gallery { column-count: 3; } }
+    @media (max-width: 900px)  { .gallery { column-count: 2; } }
+    @media (max-width: 500px)  { .gallery { column-count: 1; } }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <!-- Single heading for the whole page -->
+    <h2>WORK</h2>
+
+    <!-- One gallery with ALL images mixed randomly (sketches + projects) -->
+    <div class="gallery">
+      <!-- Mixed order – sketches and projects shuffled together -->
+      <!-- Feel free to cut/paste lines to reshuffle anytime -->
+      <img src="images/project-05.jpg" alt="Sustainable office atrium interior">
+      <img src="images/sketch-03.jpg" alt="Section through mixed-use building">
+      <img src="images/project-031.jpg" alt="Interior lobby with exposed structure">
+      <img src="images/project-072.jpg" alt="Sustainable office atrium detail">
+      <img src="images/sketch-02.jpg" alt="Hand-drawn elevation study">
+      <img src="images/project-02.jpg" alt="Modern brick residential facade">
+      <img src="images/project-053.jpg" alt="Sustainable office atrium">
+      <img src="images/sketch-01.jpg" alt="Conceptual sketch of structural system">
+      <img src="images/project-041.jpg" alt="Campus building overview">
+      <img src="images/project-01.jpg" alt="Urban mixed-use building exterior">
+      <img src="images/sketch-05.jpg" alt="Detail sketch of facade">
+      <img src="images/project-025.jpg" alt="Modern brick residential facade">
+      <img src="images/project-071.jpg" alt="Sustainable office atrium">
+      <img src="images/project-09.jpg" alt="Sustainable office atrium">
+      <img src="images/project-011.jpg" alt="Urban mixed-use building exterior detail">
+      <img src="images/sketch-04.jpg" alt="Detail sketch of facade">
+      <img src="images/project-061.jpg" alt="Sustainable office atrium">
+      <img src="images/project-022.jpg" alt="Modern brick residential facade">
+      <img src="images/project-08.jpg" alt="Sustainable office atrium">
+      <img src="images/project-051.jpg" alt="Sustainable office atrium">
+      <img src="images/project-023.jpg" alt="Modern brick residential facade">
+      <img src="images/project-052.jpg" alt="Sustainable office atrium">
+      <img src="images/project-013.jpg" alt="Urban mixed-use building perspective">
+      <img src="images/project-024.jpg" alt="Modern brick residential facade">
+      <img src="images/project-07.jpg" alt="Sustainable office atrium">
+      <img src="images/project-06.jpg" alt="Sustainable office atrium">
+      <img src="images/project-021.jpg" alt="Modern brick residential facade">
+      <img src="images/project-03.jpg" alt="Interior lobby with exposed structure">
+      <img src="images/project-012.jpg" alt="Urban mixed-use building view">
+      <img src="images/project-04.jpg" alt="Campus building overview">
+      <!-- Add any extra images here – just copy-paste <img> lines -->
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Charles Architecture. All rights reserved. | Based in Pennsylvania – Designing Worldwide</p>
+  </footer>
+
+</body>
+</html>

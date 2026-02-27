@@ -1,84 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3Y79Y6WBLP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3Y79Y6WBLP');
-</script>
-  <meta charset="UTF-8">
-  <title>CL-ARC Architecture</title>
-
-  <!-- This makes your logo show in the browser tab (favicon) -->
-  <link rel="icon" href="Large Logo 2.png" type="image/png">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Charles Architecture</title>
+  <meta name="description" content="Get in touch with Charles Architecture for your next project. Wilkes-Barre, Pennsylvania – serving clients nationwide and internationally.">
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: #0a1828;               /* very deep blue */
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #091540;      /* blue background */
+      color: #FEC601;                 /* White text */
+      min-height: 100vh;              /* Full height */
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #e8dcca;                     /* light tan */
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
       text-align: center;
     }
-    .content {
-      line-height: 1.4;
-    }
     h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-      margin: 0 0 10px 0;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
     }
-    .subtitle {
-      font-size: 2rem;
-      font-weight: 300;
-      margin: 0 0 60px 0;
-      opacity: 0.95;
+    p.intro {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      opacity: 0.9;
     }
     .contact-info {
-      font-size: 1.8rem;
-      font-weight: 500;
-      line-height: 1.6;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+      line-height: 1.8;
     }
-    a {
-      color: #e8dcca;
+    .contact-info a {
+      color: #FEC601;
       text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      transition: border-color 0.3s ease;
     }
-    a:hover {
-      text-decoration: underline;
+    .contact-info a:hover {
+      border-bottom-color: #FFFFFF;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.1rem;
+      background-color: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #FFFFFF;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #FFFFFF;
+    }
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+    button {
+      background-color: #FFFFFF;
+      color: #C9BFA8;
+      font-size: 1.2rem;
+      padding: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    button:hover {
+      background-color: rgba(255,255,255,0.9);
     }
     footer {
-      position: fixed;
-      bottom: 20px;
-      left: 0;
-      right: 0;
+      margin-top: 60px;
       font-size: 0.9rem;
       opacity: 0.8;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      p.intro { font-size: 1.1rem; }
+      .contact-info { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="content">
-    <h1>Website is Under Construction</h1>
-    <p class="subtitle">(please check back soon)</p>
-    <div class="contact-info">
-      Email: <a href="mailto:chuck@cl-arc.com">chuck@cl-arc.com</a><br>
-      Phone: +1-717-925-0044
-    </div>
-  </div>
+  <div class="container">
+    <h1>Contact</h1>
 
-  <footer>© 2025 Charles Long Architecture LLC</footer>
+    <p class="intro">
+      I'm always interested in discussing meaningful projects where quality and shared vision are priorities.  
+      Reach out if you'd like to talk about your next commission.
+    </p>
+
+    <div class="contact-info">
+      <p>Charles<br>
+         Lancaster, Pennsylvania<br>
+         <a href="mailto:chuck@cl-arc.com">chuck@cl-arc.com</a><br>
+         <a href="tel:+17179250044">(717) 925-0044</a>
+      </p>
+    </div>
+
+    <!-- Simple contact form (replace action with your form handler later) -->
+    <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- ← Add real Formspree or similar endpoint here -->
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Phone (optional)">
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <footer>
+      © 2026 Charles Long Architecture LLC. All rights reserved.
+    </footer>
+  </div>
 
 </body>
 </html>
