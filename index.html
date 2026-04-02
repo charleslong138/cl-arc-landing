@@ -1,93 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CLA</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;                /* Makes everything full height */
-      overflow: hidden;            /* No scrollbars — image fills screen */
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLA — Charles Architecture</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Full-bleed background image – covers entire screen, no borders */
-    .background {
-      position: fixed;             /* Stays in place */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('Sky.png');  /* ← Change to your PNG file name */
-      background-size: cover;      /* Fills screen, crops if needed */
-      background-position: center; /* Centers the image */
-      background-repeat: no-repeat;
-      z-index: -1;                 /* Behind everything else */
-    }
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f4f0;
+    --gray: #888;
+    --font: 'Georgia', serif;
+    --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
 
-    /* Top navigation – white text, evenly spaced */
-    nav {
-      position: fixed;
-      top: 30px;                   /* Space from top edge – adjust if needed */
-      left: 0;
-      right: 0;
-      text-align: center;
-      z-index: 10;                 /* On top of image */
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-      margin: 0 30px;              /* Even spacing between links – adjust for your taste */
-      text-transform: uppercase;
-      transition: opacity 0.3s ease;
-    }
-    nav a:hover {
-      opacity: 0.7;                /* Subtle hover effect */
-    }
+  html, body {
+    height: 100%;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
+    overflow-x: hidden;
+  }
 
-    /* Bottom-right logo link */
-    .logo-bottom {
-      position: fixed;
-      bottom: 30px;                /* Space from bottom */
-      right: 30px;                 /* Space from right */
-      z-index: 10;
-    }
-    .logo-bottom img {
-      max-width: 480px;            /* Adjust logo size – make bigger/smaller here */
-      height: auto;
-      display: block;
-      transition: opacity 0.3s ease;
-    }
-    .logo-bottom img:hover {
-      opacity: 0.8;
-    }
-  </style>
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    mix-blend-mode: normal;
+  }
+
+  .nav-logo {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: brightness(0.72);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.1) 0%,
+      rgba(0,0,0,0.0) 40%,
+      rgba(0,0,0,0.55) 100%
+    );
+  }
+
+  .hero-tagline {
+    position: absolute;
+    bottom: 48px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .hero-tagline h1 {
+    font-family: var(--font);
+    font-size: clamp(36px, 9vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  .hero-tagline h1 em {
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  .hero-tagline .sub {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    color: var(--white);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 48px;
+    right: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.45;
+  }
+
+  .scroll-hint span {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    color: var(--white);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--white);
+    animation: scrollDrop 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollDrop {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    80% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    100% { transform: scaleY(0); opacity: 0; }
+  }
+
+  /* INTRO SECTION */
+  .intro {
+    background: var(--white);
+    color: var(--black);
+    padding: 72px 28px;
+  }
+
+  .intro-inner {
+    max-width: 560px;
+  }
+
+  .intro p {
+    font-family: var(--font);
+    font-size: clamp(19px, 4vw, 26px);
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--black);
+  }
+
+  .intro-cta {
+    margin-top: 40px;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .intro-cta:hover { opacity: 0.5; }
+
+  /* WORK STRIP */
+  .work-strip {
+    background: var(--black);
+    padding: 64px 0;
+  }
+
+  .work-strip-header {
+    padding: 0 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .work-strip-header h2 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-weight: 400;
+  }
+
+  .work-strip-header a {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+  }
+
+  .work-scroll {
+    display: flex;
+    gap: 12px;
+    padding: 0 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .work-scroll::-webkit-scrollbar { display: none; }
+
+  .work-thumb {
+    flex: 0 0 72vw;
+    max-width: 320px;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    filter: brightness(0.85);
+  }
+
+  .work-thumb:hover img { transform: scale(1.03); }
+
+  /* FOOTER */
+  footer {
+    background: var(--white);
+    color: var(--black);
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  footer .f-logo {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  footer .f-sub {
+    font-size: 11px;
+    opacity: 0.45;
+    letter-spacing: 0.05em;
+  }
+
+  footer .f-contact {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    align-self: flex-start;
+  }
+
+  /* DESKTOP TWEAKS */
+  @media (min-width: 768px) {
+    nav { padding: 32px 48px; }
+    .hero-tagline { bottom: 64px; left: 48px; right: 48px; }
+    .scroll-hint { bottom: 64px; right: 48px; }
+    .intro { padding: 96px 48px; }
+    .work-strip-header { padding: 0 48px 32px; }
+    .work-scroll { padding: 0 48px; }
+    .work-thumb { flex: 0 0 38vw; max-width: 420px; }
+    footer { padding: 48px; flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    footer .f-contact { margin-top: 0; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Full-bleed background image -->
-  <div class="background"></div>
+<nav>
+  <a class="nav-logo" href="#">CLA</a>
+  <ul class="nav-links">
+    <li><a href="#">Work</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- Top navigation links -->
-  <nav>
-    <a href="/about.html">About</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/work.html">Work</a>
-  </nav>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img"
+    src="https://cl-arc.com/project-05.jpg"
+    alt="Charles Architecture project">
+  <div class="hero-overlay"></div>
+  <div class="hero-tagline">
+    <h1>Built.<br><em>On purpose.</em></h1>
+    <p class="sub">Charles Architecture &nbsp;—&nbsp; Pennsylvania</p>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
 
-  <!-- Bottom-right logo (clicks to work page) -->
-  <a href="/work.html" class="logo-bottom">
-    <img src="Logo.png" alt="Charles Architecture Logo">
-  </a>
+<!-- INTRO -->
+<section class="intro">
+  <div class="intro-inner">
+    <p>We work with clients who believe great buildings matter — and are willing to do what it takes to make them.</p>
+  </div>
+  <a class="intro-cta" href="#">See the work</a>
+</section>
+
+<!-- WORK STRIP -->
+<section class="work-strip">
+  <div class="work-strip-header">
+    <h2>Selected Work</h2>
+    <a href="#">View all →</a>
+  </div>
+  <div class="work-scroll">
+    <div class="work-thumb"><img src="https://cl-arc.com/project-01.jpg" alt="Project"></div>
+    <div class="work-thumb"><img src="https://cl-arc.com/project-02.jpg" alt="Project"></div>
+    <div class="work-thumb"><img src="https://cl-arc.com/project-03.jpg" alt="Project"></div>
+    <div class="work-thumb"><img src="https://cl-arc.com/project-04.jpg" alt="Project"></div>
+    <div class="work-thumb"><img src="https://cl-arc.com/project-05.jpg" alt="Project"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="f-logo">Charles Architecture</div>
+    <div class="f-sub">Based in Pennsylvania — Designing Worldwide</div>
+  </div>
+  <a class="f-contact" href="#">Get in touch</a>
+</footer>
 
 </body>
-
 </html>
-
